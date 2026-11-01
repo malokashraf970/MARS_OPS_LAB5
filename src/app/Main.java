@@ -1,5 +1,4 @@
 package app;
-
 import agents.Engineer;
 import agents.ExplorationRover;
 import agents.MedicalOfficer;
