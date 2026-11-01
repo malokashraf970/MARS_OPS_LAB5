@@ -1,0 +1,55 @@
+
+--- Scenario 1: Successful Exploration ---
+
+=== Ares Research Colony STATUS (time 0) ===
+Environment: NORMAL
+Resources: OXYGEN=500 WATER=100 FOOD=0 FUEL=0 BATTERY_POWER=20 MEDICAL_SUPPLIES=5 SPARE_PARTS=10 
+Crew:
+  Scientist Dr. Lina (available=true, location=Habitat A)
+  Engineer Eng. Omar (available=true, location=Habitat A)
+  Medical Officer Nurse Sara (available=true, location=Habitat A)
+Robots:
+  Exploration Rover Rover-1 (battery=80, available=true)
+  Repair Robot RepairBot-1 (battery=60, available=true)
+  Drone Drone-1 (battery=70, available=true)
+Facilities:
+  Habitat A (HABITAT, operational=true, OXYGEN=300 WATER=100 FOOD=0 FUEL=0 BATTERY_POWER=0 MEDICAL_SUPPLIES=0 SPARE_PARTS=0)
+  Central Storage (STORAGE, operational=true, OXYGEN=200 WATER=0 FOOD=0 FUEL=0 BATTERY_POWER=20 MEDICAL_SUPPLIES=5 SPARE_PARTS=10)
+  Mars Lab (LABORATORY, operational=true, OXYGEN=0 WATER=0 FOOD=0 FUEL=0 BATTERY_POWER=0 MEDICAL_SUPPLIES=0 SPARE_PARTS=0)
+Active mission: none
+Emergencies: []
+
+After execution: Explore Jezero Crater [EXPLORATION, state=COMPLETED, progress=3/3]
+
+=== Ares Research Colony STATUS (time 4) ===
+Environment: NORMAL
+Resources: OXYGEN=500 WATER=100 FOOD=0 FUEL=0 BATTERY_POWER=15 MEDICAL_SUPPLIES=5 SPARE_PARTS=10 
+Crew:
+  Scientist Dr. Lina (available=true, location=Martian Surface)
+  Engineer Eng. Omar (available=true, location=Habitat A)
+  Medical Officer Nurse Sara (available=true, location=Habitat A)
+Robots:
+  Exploration Rover Rover-1 (battery=80, available=true)
+  Repair Robot RepairBot-1 (battery=60, available=true)
+  Drone Drone-1 (battery=70, available=true)
+Facilities:
+  Habitat A (HABITAT, operational=true, OXYGEN=300 WATER=100 FOOD=0 FUEL=0 BATTERY_POWER=0 MEDICAL_SUPPLIES=0 SPARE_PARTS=0)
+  Central Storage (STORAGE, operational=true, OXYGEN=200 WATER=0 FOOD=0 FUEL=0 BATTERY_POWER=15 MEDICAL_SUPPLIES=5 SPARE_PARTS=10)
+  Mars Lab (LABORATORY, operational=true, OXYGEN=0 WATER=0 FOOD=0 FUEL=0 BATTERY_POWER=0 MEDICAL_SUPPLIES=0 SPARE_PARTS=0)
+Active mission: none
+Emergencies: []
+
+
+--- Scenario 2: Mission Rejection ---
+Invalid Exploration [EXPLORATION, state=FAILED, progress=0/2, reason=Agent Nurse Sara does not possess the required capability.] (active mission=null)
+
+--- Scenario 3: Resource Shortage ---
+Fuel before=0, after=0
+Fuel-Hungry Repair [REPAIR, state=FAILED, progress=0/2, reason=Insufficient resources; no resources were consumed.]
+
+--- Scenario 4: Oxygen Leak Emergency ---
+Habitat oxygen before=300, after=275
+OXYGEN_LEAK at Habitat A [RESOLVED: Leak repaired; initial oxygen loss only. Responders: 2]
+
+--- Scenario 5: Environmental Effect ---
+Storm Exploration [EXPLORATION, state=FAILED, progress=0/2, reason=Surface operations are not allowed during a dust storm.]
